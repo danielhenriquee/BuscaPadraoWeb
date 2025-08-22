@@ -52,13 +52,13 @@ public class Main {
     public static void main(String[] args) {
         //instancia e usa objeto que captura código-fonte de páginas Web
         CapturaRecursosWeb crw = new CapturaRecursosWeb();
-        crw.getListaRecursos().add("https://www.univali.br/");
+        crw.getListaRecursos().add("https://portalservicos.senatran.serpro.gov.br/#/veiculos/consultar/detalhes/12312312300/BBB2C33/01010101010");
         ArrayList<String> listaCodigos = crw.carregarRecursos();
 
         String codigoHTML = listaCodigos.get(0);
 
         //mapa do alfabeto
-        char[] alfabeto = new char[10];
+        char[] alfabeto = new char[36];
         alfabeto[0] = '0';
         alfabeto[1] = '1';
         alfabeto[2] = '2';
@@ -95,11 +95,10 @@ public class Main {
         alfabeto[33] = 'X';
         alfabeto[34] = 'Y';
         alfabeto[35] = 'Z';
-        alfabeto[36] = 'Q';
 
 
         //mapa de estados
-        String[] estados = new String[3];
+        String[] estados = new String[8];
         estados[0] = "q0";
         estados[1] = "q1";
         estados[2] = "q2";
@@ -116,7 +115,7 @@ public class Main {
         estados_finais[0] = "q7";
 
         //tabela de transição de AFD para reconhecimento números de dois dígitos
-        int[][] matriz = new int[3][10];
+        int[][] matriz = new int[8][36];
         //transições de q0
         matriz[get_string_ref(estados, "q0")][get_char_ref(alfabeto, 'A')] = get_string_ref(estados, "q1");
         matriz[get_string_ref(estados, "q0")][get_char_ref(alfabeto, 'B')] = get_string_ref(estados, "q1");
@@ -268,7 +267,7 @@ public class Main {
         matriz[get_string_ref(estados, "q7")][get_char_ref(alfabeto, '6')] = -1;
         matriz[get_string_ref(estados, "q7")][get_char_ref(alfabeto, '7')] = -1;
         matriz[get_string_ref(estados, "q7")][get_char_ref(alfabeto, '8')] = -1;
-        matriz[get_string_ref(estados, "q2")][get_char_ref(alfabeto, '9')] = -1;
+        matriz[get_string_ref(estados, "q7")][get_char_ref(alfabeto, '9')] = -1;
 
         
         int estado = get_string_ref (estados, estado_inicial);
