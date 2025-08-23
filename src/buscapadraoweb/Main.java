@@ -55,8 +55,9 @@ public class Main {
         crw.getListaRecursos().add("https://portalservicos.senatran.serpro.gov.br/#/veiculos/consultar/detalhes/12312312300/BBB2C33/01010101010");
         ArrayList<String> listaCodigos = crw.carregarRecursos();
 
-        String codigoHTML = listaCodigos.get(0);
-
+        // String codigoHTML = listaCodigos.get(0);
+        String codigoHTML = "https://servicos.detran.sc.gov.br/consulta-dossie-veiculo?placa=AAA1A11&renavam=00000000000";
+        
         //mapa do alfabeto
         char[] alfabeto = new char[36];
         alfabeto[0] = '0';
