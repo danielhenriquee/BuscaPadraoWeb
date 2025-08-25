@@ -74,6 +74,12 @@ public class Main {
     public static int[][] construirAFD(String[] estados, char[] alfabeto) { 
         int[][] matriz = new int[8][36];
 
+        for(int i = 0; i < 8;i++){
+            for(int j = 0; j < 36; j++){
+                matriz[i][j] = -1;
+            }
+        }
+
         adicionarTransicaoLetras(matriz, "q0", "q1", estados, alfabeto);
         adicionarTransicaoLetras(matriz, "q1", "q2", estados, alfabeto);
         adicionarTransicaoLetras(matriz, "q2", "q3", estados, alfabeto);
@@ -92,11 +98,10 @@ public class Main {
     public static void main(String[] args) {
         //instancia e usa objeto que captura código-fonte de páginas Web
         CapturaRecursosWeb crw = new CapturaRecursosWeb();
-        crw.getListaRecursos().add("https://portalservicos.senatran.serpro.gov.br/#/veiculos/consultar/detalhes/12312312300/BBB2C33/01010101010");
+        crw.getListaRecursos().add("https://www.cobli.co/blog/troca-placa-mercosul/");
         ArrayList<String> listaCodigos = crw.carregarRecursos();
 
-        // String codigoHTML = listaCodigos.get(0);
-        String codigoHTML = "https://servicos.detran.sc.gov.br/consulta-dossie-veiculo?placa=AAA1A11&renavam=00000000000";
+        String codigoHTML = listaCodigos.get(0);
         
         //mapa do alfabeto
         char[] alfabeto = new char[36];
